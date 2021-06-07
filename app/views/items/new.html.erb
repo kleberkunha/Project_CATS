@@ -1,0 +1,42 @@
+<% if user_signed_in? %>
+  <h1>Ajoute une photo de chaton(s) !</h1>
+  <% if !@picture.nil? && @picture.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <p>Nous n'avons pas réussi à ajouter la photo pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+  
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', (@item.title if !@item.nil?), size: 150, minlength: 5, maxlength: 140 %>
+    <br /> <br />
+  
+    <%= label_tag 'Description' %>
+    <%= text_area_tag 'description', (@item.description if !@item.nil?), size: "25x10", minlength: 20, maxlength: 1000 %>
+    <br /> <br />
+  
+    <%= label_tag 'Prix en euros' %>
+    <%= number_field_tag 'price', (@item.price if !@item.nil?), min: 1, max: 1000, step: 1 %>
+    <br /> <br />
+  
+    <%= label_tag 'URL' %>
+    <%= text_area_tag 'image_url', (@item.image_url if !@item.nil?), size: "550", minlength: 20, maxlength: 540 %>
+    <br /> <br />
+  
+    <%= submit_tag "Enregistrer cette photo" %>
+  
+  <% end %>
+
+<% else %>
+
+  <div class="alert alert-danger" role="alert">
+    <p>Tu n'es pas connecté : tu n'es donc pas autorisé à ajouter une photo!</p>
+  </div>
+
+<% end %>

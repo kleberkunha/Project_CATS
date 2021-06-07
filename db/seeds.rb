@@ -21,8 +21,7 @@ Faker::Config.locale = 'en-US'
 
 puts "\nCréation de l'admin du site : un utilisateur de password \"Anonymous\", qui a pour email \"anonymous@yopmail.com\"."
 
-anonymous_user = User.new(
-email: "anonymous@yopmail.com",
+anonymous_user = User.new(email: "anonymous@yopmail.com",
                           encrypted_password: BCrypt::Password.create("Anonymous")
                          )
 anonymous_user.save!(:validate => false)
@@ -46,7 +45,7 @@ n.times do |index|
 
   item = Item.create( title: "Photo n°#{index + 1}",
                       description: "Photo de chaton(s) fictive créée par seed.",
-                      price: Faker::Number.between(from: 1.0, to: 1000.0),
+                      price: Faker::Number.between(from: 1.0, to: 1000.0).round(2),
                       image_url: Faker::Internet.url
                     )
   items_array << item
@@ -68,7 +67,7 @@ tp User.all
 tp.set Item, :id,
                 {title: {:width => 13}},
                 {description: {:width => 70}},
-                {price: {:width => 5}},
+                {price: {:width => 7}},
                 {image_url: {:width => 170}}
 puts "\n#{items_array.length} photos créées :\n"
 tp Item.all

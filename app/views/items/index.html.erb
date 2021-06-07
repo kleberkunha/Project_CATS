@@ -1,0 +1,42 @@
+<style type="text/css">
+  table {
+    margin:auto;
+  }
+  table,
+  td {
+    border: 1px solid #333;
+  }
+
+  thead,
+  tfoot {
+    background-color: #333;
+    color: #fff;
+  }
+</style>
+
+<div>
+  <h1>Bienvenue sur l'application "Kittens Pictures Market" de <em>"Iziteam"</em></h1>
+  <BR>
+  <% if !notice.nil? %>
+    <div class="alert alert-success" role="alert">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  <table>
+    <caption>Liste de toutes les photos</caption>
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Page</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= link_to "Photo n°#{item.id}", item_path(item.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
