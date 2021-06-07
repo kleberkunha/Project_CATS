@@ -10,6 +10,38 @@
   </head>
 
   <body>
+    <section>
+      <nav class="navbar navbar-toggleable-sm navbar-inverse " id="navbar-only">
+            <div class="container-fluid" id="content-container">
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler-1" aria-controls="navbarToggler-1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand"></a>
+              <div class="collapse navbar-collapse" id="navbarToggler-1">
+                <ul class="navbar-nav mt-2 mt-md-0">
+                  <li class="nav-item active">
+                    <a class="btn btn-outline-white btn-outline" href="#">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-white btn-outline" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-white btn-outline" href="#">Our Work</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-white btn-outline" href="#">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-white btn-outline" href="#">Register</a>
+                  </li>
+                  <li class="nav-item login">
+                    <a class="btn btn-outline-white btn-outline" href="#">Login</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </section>
     <%= yield %>
   </body>
 </html>

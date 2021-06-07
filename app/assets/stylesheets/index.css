@@ -1,0 +1,30 @@
+section nav{
+    background-color: rgba(17, 104, 38, 0.842);
+    height: 50px;
+}
+
+#navbarToggler-1{
+    margin-top: -25px;
+}
+
+.register{
+    background-color: blue;
+}
+
+.card-title{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+.cover-2{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: 0px 0px 10px 0px white;
+    width: 25rem;
+    height: 450px;
+}
