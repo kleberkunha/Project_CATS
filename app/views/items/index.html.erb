@@ -27,7 +27,6 @@
     <thead>
       <tr>
         <th>Titre</th>
-        <th>Photo</th>
         <th>Page</th>
       </tr>
     </thead>
@@ -35,7 +34,6 @@
       <% @items.each do |item| %>
         <tr>
           <td><%= item.title %></td>
-          <td><img src=<%= item.image_url %> alt=<%= item.image_url %>></td>
           <td><%= link_to "Photo n°#{item.id}", item_path(item.id) %></td>
         </tr>
       <% end %>
