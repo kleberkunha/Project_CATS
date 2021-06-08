@@ -16,6 +16,7 @@ users_array = []
 items_array = []
 carts_array = []
 orders_array = []
+images_array = ["https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png", "https://cdn.wallpapersafari.com/67/3/NWidYm.jpg", "https://undark.org/wp-content/uploads/2020/02/GettyImages-1199242002-1-scaled.jpg", "https://www.pets4homes.co.uk/images/articles/1232/large/what-a-cats-normal-temperature-should-be-5293ea1039480.jpg"]
 
 Faker::Config.locale = 'en-US'
 
@@ -46,7 +47,7 @@ n.times do |index|
   item = Item.create( title: "Photo n°#{index + 1}",
                       description: "Photo de chaton(s) fictive créée par seed.",
                       price: Faker::Number.between(from: 1.0, to: 1000.0).round(2),
-                      image_url: Faker::Internet.url
+                      image_url: images_array[index]
                     )
   items_array << item
 

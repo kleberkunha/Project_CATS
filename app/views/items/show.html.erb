@@ -1,4 +1,4 @@
-<% if !@item_hash['item'].nil? && user_signed_in? %>
+<% if !@item_hash['item'].nil? %>
   <h1>Voici la page de la photo n°<%= @item_hash['index'] %></h1>
   <BR>
   <% if !notice.nil? %>
@@ -10,17 +10,14 @@
   <div>
     <p>Son titre : <%= @item_hash['item'].title %></p>
     <p>Sa description : <p class="content"><%= @item_hash['item'].description %></p></p>
+    <p>Son prix : <%= @item_hash['item'].price %> &euro;</p>
+    <p>Son image : <img src=<%= @item_hash['item'].image_url %> alt=<%= @item_hash['item'].image_url %>></p>  
     <p>La date d'ajout de la photo : <%= @item_hash['item'].created_at %></p>
     <p>La date de dernière modification des détails de la photo : <%= @item_hash['item'].updated_at %></p>
-    <p>Son prix : <%= @item_hash['item'].price %></p>
     <br />
   </div>
-<% elsif @item_hash['item'].nil? %>
+<% else @item_hash['item'].nil? %>
   <div class="alert alert-danger" role="alert">
     <p>Aucune photo de n°<%= @item_hash['index'] %> n'existe dans la base!</p>
-  </div>
-<% else %>
-  <div class="alert alert-danger" role="alert">
-    <p>Tu n'es pas connecté : tu n'es donc pas autorisé à visualiser les détails de cette photo!</p>
   </div>
 <% end %>
