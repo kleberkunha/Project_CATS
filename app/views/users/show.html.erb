@@ -1,0 +1,21 @@
+<% if !@user_hash['user'].nil? %>
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-danger" role="alert">
+      <%= msg %>
+    </div>
+  <%end%>
+  <h1>Voici la page profil de l'utilisateur n°<%= @user_hash['index'] %></h1>
+  <div>
+    <p>Son email : <%= @user_hash['user'].email %></p>
+    <br />
+  </div>
+<% else %>
+  <div class="alert alert-danger" role="alert">
+    <p>Aucun utilisateur de n°<%= @user_hash['index'] %> n'existe dans la base!</p>
+  </div>
+<% end %>
+<div>
+  <p>
+    <a href="<%= edit_user_registration_path %>" class="btn btn-primary btn-sm" role="button">Mettre à jour les informations du compte utilisateur</a>
+  </p>
+</div>
