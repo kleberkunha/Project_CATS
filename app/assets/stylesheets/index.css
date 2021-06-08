@@ -1,5 +1,43 @@
+/*TYPEWRITE*/
+
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+/* Global */
+.line-1{
+    position: relative; 
+    width: 10em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 8.5em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+
+
+
+/*TYPEWRITE*/
+
+
 section nav{
-    background-color: rgba(17, 104, 38, 0.842);
+    background-color: rgb(0, 0, 0);
     height: 50px;
 }
 
@@ -41,19 +79,54 @@ section nav{
 .box-div {
     width: 100%;
     height: 70vh;
-    margin-top: 90px;
-    border: 1px solid white;
+    margin-top: 100px;
 }
 
 .subbox-1{
     width: 50%;
     height: 675px;
-    border: 1px solid white;
-    
+    margin-right: 45px;
+
 }
 .under-sub-box{
-    width: 50%;
-    height: 500px;
-    border: 1px solid white;
+    width: 72%;
+    height: 85%;
     border-radius: 100%;
+}
+
+.under-sub-box .carousel-inner{
+    border-radius: 100%;
+    border: 30px solid black;
+
+}
+
+.under-sub-box .carousel-inner .carousel-item{
+    height: 645px;
+}
+
+
+.part-1-sub-box{
+    width: 45%;
+    padding: 10px;
+}
+.part-1-sub-box p{
+    padding: 40px;
+    color: white;
+}
+.part-1-sub-box h1{
+    font-family: cursive;
+    font-size: 60px;
+    margin-top: 600px;
+    opacity: 0.7;
+}
+
+
+#items-photos{
+    display: flex;
+    justify-content: center;
+}
+
+.sub-container-photos{
+    border: 5px solid white;
+    width: 100%;
 }

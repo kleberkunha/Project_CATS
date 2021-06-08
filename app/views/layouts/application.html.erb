@@ -20,22 +20,21 @@
               <div class="collapse navbar-collapse" id="navbarToggler-1">
                 <ul class="navbar-nav mt-2 mt-md-0">
                   <li class="nav-item active">
-                    <a class="btn btn-outline-white btn-outline" href="#">Home<span class="sr-only">(current)</span></a>
+                    <%= link_to "Home", items_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-white btn-outline" href="#">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-white btn-outline" href="#">Our Work</a>
+                    <%= link_to "Contact", new_user_session_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-outline-white btn-outline" href="#">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="btn btn-outline-white btn-outline" href="#">Register</a>
+                    <%= link_to "Register", new_user_registration_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item login">
-                    <a class="btn btn-outline-white btn-outline" href="#">Login</a>
+                    <%= link_to "Login", user_session_path, class: "nav-link" %>
+                  </li>
+                    <li class="nav-item">
+                    <%= link_to "Log-out", destroy_user_session_path, class: "nav-link" %>
                   </li>
                 </ul>
               </div>
