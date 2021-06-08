@@ -1,42 +1,164 @@
-<style type="text/css">
-  table {
-    margin:auto;
-  }
-  table,
-  td {
-    border: 1px solid #333;
-  }
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Startup UI Kit - Free Sample</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/application.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/bootstrap.css">
+		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/style.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/cssdirect.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/index.css">
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  </head>
+	<body>
+		<section class="cover-1 text-center">
+			<div class="box-div border border-light d-flex justify-content-end">
+				<div class="subbox-1">
+					<div class="under-sub-box">
+					
+					</div>
+				
+				
+				</div>
+			
+			</div>
+		</section>
 
-  thead,
-  tfoot {
-    background-color: #333;
-    color: #fff;
-  }
-</style>
+		
+		<section class="cover-2 p-5">
+			<div class="container-photos p-5">
+				<% if !notice.nil? %>
+					<div class="alert alert-success" role="alert">
+					<p id="notice"><%= notice %></p>
+				</div>
+				<% end %>
+				<table>
+					<tbody class="">
+					<% @items.each do |item| %>
+						<tr>
+						<div class="card">
+							<img class="card-img-top" src="https://img.icons8.com/bubbles/2x/user-male.png" alt="Card image cap">
+							<div class="card-body text-center p-4">
+							<h5 class="card-title"><%= item.title %></h5>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<button class="btn btn-light"><%= link_to "Photo n°#{item.id}", item_path(item.id) %></button>
+							</div>
+						</div>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		
+		<section class="features-4 text-center">
+			<div class="container">
+				<div class="row justify-center">
+					<div class="col-md-8 text-center" >
+						<h2>Features</h2>
+						<p class="lead mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus erat sed sem sagittis cursus.</p>
+						<div class="divider"></div>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-feature">
+						<div class="rounded-circle justify-center">
+							<em class="fa fa-2x fa-paint-brush"></em>
+						</div>
+						<h4>Clean Design</h4>
+						<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+					</div>
+					<div class="col-md-3 col-feature">
+						<div class="rounded-circle justify-center">
+							<em class="fa fa-2x fa-mobile"></em>
+						</div>
+						<h4>Responsive</h4>
+						<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+					</div>
+					<div class="col-md-3 col-feature">
+						<div class="rounded-circle justify-center">
+							<em class="fa fa-2x fa-code"></em>
+						</div>
+						<h4>Bootstrap 4</h4>
+						<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+					</div>
+					<div class="col-md-3 col-feature">
+						<div class="rounded-circle justify-center">
+							<em class="fa fa-2x fa-pencil"></em>
+						</div>
+						<h4>Easy to Edit</h4>
+						<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 
-<div>
-  <h1>Bienvenue sur l'application "Kittens Pictures Market" de <em>"Iziteam"</em></h1>
-  <BR>
-  <% if !notice.nil? %>
-    <div class="alert alert-success" role="alert">
-      <p id="notice"><%= notice %></p>
-    </div>
-  <% end %>
-  <table>
-    <caption>Liste de toutes les photos</caption>
-    <thead>
-      <tr>
-        <th>Titre</th>
-        <th>Page</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <td><%= item.title %></td>
-          <td><%= link_to "Photo n°#{item.id}", item_path(item.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+		
+		
+		
+		<section class="contact-2">
+			<div class="container">
+				<div class="row contact-details">
+					<div class="col-sm-8 offset-sm-2 text-center">
+						<h2>Contact Us</h2>
+						<p class="lead constrain-width mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. At aliquam rhoncus donec magna turpis, dictum sit amet tellus at, commodo elementum sapien.</p>
+						<div class="divider"></div>
+						<h4>Ask us a question</h4>
+						<form class="contact-form mt-4">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="form-control-custom mb-4" placeholder="Name" value="Your name">
+								</div>
+								<div class="col-md-6">
+									<input type="text" class="form-control-custom mb-4" placeholder="Email address" value="Email address">
+								</div>
+								<br />
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<textarea class="form-control-custom mb-4" rows="3">Your Message</textarea><br />
+									<button type="submit" class="btn btn-primary btn-lg mb-4">Send Message</button>
+								</div> 
+							</div>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<footer class="footer-4">
+			<div class="container">
+				<div class="row ">
+					<div class="col-md-6 text-md-right mt-2 pt-1">
+						<p class="copyright ">Copyright &copy; YourStartup. All rights reserved.</p>
+					</div>
+					<div class="col-md-6 text-center text-md-right mb-4">
+						<ul class="social">
+							<li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>
+							<li><a href="#" title="Twitter" class="fa fa-twitter"></a></li>
+							<li><a href="#" title="Google+" class="fa fa-google"></a></li>
+							<li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>
+							<li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+	</body>
+</html>
