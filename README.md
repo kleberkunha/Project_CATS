@@ -37,3 +37,4 @@ Le password du 3-ième utilisateur - de prénom "Domenic", de nom "Nolan" et d'e
 
 Le password du 4-ième utilisateur - de prénom "Deangelo", de nom "Mckenzie" et d'email "deangelo_mckenzie@yopmail.com" - créé par ce seed sera : "E06nEeL".
 
+/*testing push K*/
