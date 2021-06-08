@@ -16,42 +16,43 @@
   </head>
 	<body>
 		<section class="cover-1 text-center">
-        <div class="container bg-dark" id="teste" style="display: flex;">
-          <div class="item item-1"><img src="/app/assets/images/cat-removebg-preview.png" alt="">
-            <h3 class="p-3">Our services</h3>
-            <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quae veritatis similique at. Architecto tempora esse libero impedit numquam voluptate placeat, quod aut explicabo, fugiat a dolor optio sapiente atque.</p><br/>
-          <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nam doloribus sequi officiis id nostrum minus fugiat maxime eos? Unde inventore libero ad nostrum numquam laborum earum iure porro commodi.</p></div>
-          <div class="item-mid d-flex justify-center">
-          </div>
-          <div class="item item-2">
-          <p class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quae veritatis similique at. Architecto tempora esse libero impedit numquam voluptate placeat, quod aut explicabo, fugiat a dolor optio sapiente atque.</p><br/>
-        <p class="p2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nam doloribus sequi officiis id nostrum minus fugiat maxime eos? Unde inventore libero ad nostrum numquam laborum earum iure porro commodi.</p></div>
-      </div>
+			<div class="box-div border border-light d-flex justify-content-end">
+				<div class="subbox-1">
+					<div class="under-sub-box">
+					
+					</div>
+				
+				
+				</div>
+			
+			</div>
 		</section>
 
 		
-		<section class="cover-2">
-      <% if !notice.nil? %>
-        <div class="alert alert-success" role="alert">
-          <p id="notice"><%= notice %></p>
-      </div>
-      <% end %>
-      <table>
-        <tbody class="">
-          <% @items.each do |item| %>
-            <tr>
-              <div class="card">
-                <img class="card-img-top" src="https://img.icons8.com/bubbles/2x/user-male.png" alt="Card image cap">
-                <div class="card-body text-center p-4">
-                  <h5 class="card-title"><%= item.title %></h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <button class="btn btn-light"><%= link_to "Photo n°#{item.id}", item_path(item.id) %></button>
-                </div>
-              </div>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+		<section class="cover-2 p-5">
+			<div class="container-photos p-5">
+				<% if !notice.nil? %>
+					<div class="alert alert-success" role="alert">
+					<p id="notice"><%= notice %></p>
+				</div>
+				<% end %>
+				<table>
+					<tbody class="">
+					<% @items.each do |item| %>
+						<tr>
+						<div class="card">
+							<img class="card-img-top" src="https://img.icons8.com/bubbles/2x/user-male.png" alt="Card image cap">
+							<div class="card-body text-center p-4">
+							<h5 class="card-title"><%= item.title %></h5>
+							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<button class="btn btn-light"><%= link_to "Photo n°#{item.id}", item_path(item.id) %></button>
+							</div>
+						</div>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+			</div>
 		</section>
 		
 		<section class="features-4 text-center">
@@ -96,43 +97,8 @@
 			</div>
 		</section>
 		
-		<section class="cta-2 text-center">
-			<div class="container">
-				<h3 class="mt-2 mb-4">Sign up now to save 10% on your first order</h3>
-				<form class="subscribe">
-					<div class="form-group row pt-3">
-						<div class="col-sm-8 mb-3">
-							<input type="text" class="form-control-custom" id="inputName" placeholder="Your Name">
-						</div>
-						<div class="col-sm-4">
-							<button type="submit" class="btn btn-lg btn-outline-success">Sign me up</button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</section>
 
-		<section class="cta-4 text-center justify-center">
-			<div class="container">
-				<h2 class="mb-5">Download this UI Kit and use it to help your startup get started up</h2>
-				<div class="divider"></div>
-				<form class="subscribe">
-					<div class="form-group row pt-4 pb-2">
-						<div class="offset-md-2 col-md-4 mb-3">
-							<input type="text" class="form-control-custom" id="inputName" placeholder="Your Name">
-						</div>
-						<div class="col-md-4 mb-3">
-							<input type="email" class="form-control-custom" id="inputEmail" placeholder="Your Email">
-						</div>
-					</div>
-					<div class="row">
-						<div class="offset-md-4 col-md-4">
-							<button type="submit" class="btn btn-lg btn-primary pill-btn">Get Started</button>
-						</div>
-					</div>
-				</form>
-			</div>
-		</section>
+		
 		
 		
 		<section class="contact-2">

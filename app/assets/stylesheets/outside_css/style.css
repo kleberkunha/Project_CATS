@@ -206,8 +206,9 @@ li.nav-item .btn-white {
   color: #46484a; }
 
 .cover-1 {
-  background: url("http://www.houstonpettalk.com/wp-content/uploads/2011/05/Grass1.jpg") center;
+  background: url("https://www.wallpaperup.com/uploads/wallpapers/2013/08/12/133027/e9cc83ec06651d849c18ed8b7203aaea-700.jpg") center;
   background-size: cover;
+  box-shadow: 0px 0px 20px 0px black;
   min-height: 62rem;
   height: auto;
   border-radius: 0;
@@ -226,7 +227,8 @@ li.nav-item .btn-white {
     margin: 0 auto; }
 
 .cover-2 {
-  background:url("https://www.wallpaperup.com/uploads/wallpapers/2013/08/12/133027/e9cc83ec06651d849c18ed8b7203aaea-700.jpg") center;
+  border: 1px solid black;
+  background:url("") center;
   background-size: cover;
   min-height: 50rem;
   height: auto;
