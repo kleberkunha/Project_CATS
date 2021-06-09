@@ -1,0 +1,44 @@
+<h1>My Cart</h1>
+<% if @cart.lenght > 0 %>
+<table class="table">
+  <thead>
+      <tr>
+      <th scope="col" colspan="2">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <% @cart.each do |cart_item| %>
+    <tr>
+      <td class="w-25">
+        <%= #image photo %>
+      </td>
+      <td><%= cart_item.item.title %></td>
+      <td class="w-25"><%= number_to_currency(cart_item.item.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+      <td class="text-center w-25">
+        <%= link_to "Delete product", cart_item_path(cart_item), method: "delete", class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <th scope="row" colspan="2">Total</th>
+    <td colspan="2"><strong><%= number_to_currency(cart.total, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></strong></td>
+  </tr>
+</table>
+<% if cart.total.to_d > 1 %>
+  <% if user_signed_in? %>
+    <div class="col-md-8 mx-auto py-3 text-center">
+      <%= button_to "Checkout", checkout_create_path(total: cart.total), class: "btn btn-primary btn-block", remote: true %>
+    </div>
+  <% else %>
+    <div class="col-md-8 mx-auto py-3 text-center">
+      <%= button_to "Checkout", user_session_path, class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+<% end %>
+
+<% else %>
+  <p>Ton panier est vide</p>
+  <%= link_to "Click ici pour trouver une image", root_path, class: "btn btn-primary btn-block mt-5" %>
+  </div>
+<% end %>
