@@ -1,21 +1,25 @@
-<% if !@user_hash['user'].nil? %>
-  <% flash.each do |type, msg| %>
-    <div class="alert alert-danger" role="alert">
-      <%= msg %>
-    </div>
-  <%end%>
-  <h1>Voici la page profil de l'utilisateur n°<%= @user_hash['index'] %></h1>
+<% if !@user.nil? && user_signed_in? && @user.id == current_user.id %>
+  <h1>Voici la page profil de l'utilisateur n°<%= @user.id %></h1>
   <div>
-    <p>Son email : <%= @user_hash['user'].email %></p>
+    <p>Son email : <%= @user.email %></p>
     <br />
+  </div>
+  <br />
+  <div>
+    <p>
+      <a href="<%= edit_user_registration_path %>" class="btn btn-primary btn-sm" role="button">Mettre à jour les informations du compte utilisateur</a>
+    </p>
+  </div>
+<% elsif @user.id != current_user.id %>
+  <div class="alert alert-danger" role="alert">
+    <p>Il ne s'agit pas de ton profil : tu n'es donc pas autorisé à visualiser les informations du compte utilisateur!</p>
+  </div>
+<% elsif !user_signed_in? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Tu n'es pas connecté : tu n'es donc pas autorisé à visualiser les informations du compte utilisateur!</p>
   </div>
 <% else %>
   <div class="alert alert-danger" role="alert">
-    <p>Aucun utilisateur de n°<%= @user_hash['index'] %> n'existe dans la base!</p>
+    <p>Aucun utilisateur de n°<%= params[:id] %> n'existe dans la base!</p>
   </div>
 <% end %>
-<div>
-  <p>
-    <a href="<%= edit_user_registration_path %>" class="btn btn-primary btn-sm" role="button">Mettre à jour les informations du compte utilisateur</a>
-  </p>
-</div>
