@@ -4,7 +4,6 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :stripe_customer_id
 
       t.belongs_to :user, index: true
-      t.belongs_to :item, index: true
 
       t.timestamps
     end
