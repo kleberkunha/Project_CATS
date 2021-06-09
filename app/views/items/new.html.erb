@@ -1,10 +1,10 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && admin? %>
   <h1>Ajoute une photo de chaton(s) !</h1>
-  <% if !@picture.nil? && @picture.errors.any? %>
+  <% if !@item.nil? && @item.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <p>Nous n'avons pas réussi à ajouter la photo pour la (ou les) raison(s) suivante(s) :</p>
       <ul>
-        <% @picture.errors.full_messages.each do |message| %>
+        <% @item.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -22,16 +22,22 @@
     <br /> <br />
   
     <%= label_tag 'Prix en euros' %>
-    <%= number_field_tag 'price', (@item.price if !@item.nil?), min: 1, max: 1000, step: 1 %>
+    <%= number_field_tag 'price', (@item.price if !@item.nil?), min: 1, max: 1000, step: 0.05 %>
     <br /> <br />
   
     <%= label_tag 'URL' %>
-    <%= text_area_tag 'image_url', (@item.image_url if !@item.nil?), size: "550", minlength: 20, maxlength: 540 %>
+    <%= text_area_tag 'image_url', (@item.image_url if !@item.nil?), size: "150", minlength: 20, maxlength: 140 %>
     <br /> <br />
   
     <%= submit_tag "Enregistrer cette photo" %>
   
   <% end %>
+
+<% elsif !admin? %>
+
+  <div class="alert alert-danger" role="alert">
+    <p>Tu n'es pas l'admin de ce site : tu n'es donc pas autorisé à ajouter une photo!</p>
+  </div>
 
 <% else %>
 

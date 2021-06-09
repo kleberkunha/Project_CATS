@@ -1,26 +1,59 @@
-<h2>Log in</h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+	  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/login_ui_css.css">
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+	</head>
+	<body>
+    <div class="login-bg">
+      
+      <section class="ftco-section ">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="container ">
+            <div class="row justify-content-center p-5">
+              <div class=" col-md-6 col-lg-4" id="bg-login">
+                <div class="login-wrap py-5 text-center">
+                  <h3 class="text-center mb-0">Welcome</h3>
+                  <p class="text-center">Sign in by entering the information below</p>
+                  <form action="#" class="login-form">
+                    <div class="form-group">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :password %><br />
+                      <%= f.password_field :password, autocomplete: "current-password" %>
+                    </div>
+                    <% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+                      </div>
+                    <% end %>
+                    <div class="form-group justify-center">
+                      <div class="actions">
+                        <%= f.submit "Log in" %>
+                      </div>
+                        
+                    </div>
+                  </form>
+                  <div class="w-100 text-center mt-4 text">
+                  <%= render "devise/shared/links" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </section>
     </div>
-  <% end %>
+	</body>
+</html>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>

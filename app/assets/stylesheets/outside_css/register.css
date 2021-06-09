@@ -1,0 +1,14 @@
+.register-bg{
+    background-image: url("https://s1.1zoom.me/big0/492/Cats_Leopard_cat_504946.jpg");
+    background-size: cover;
+    color: white;
+    width: 100%;
+    height: 94.9vh;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#bg-register{
+   margin-top: 150px;
+   margin-left: 10px;
+}

@@ -1,16 +1,48 @@
-<h2>Forgot your password?</h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+	  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/password.css">
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+	</head>
+	<body>
+    <div class="password-bg">
+      <section class="ftco-section ">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <div class="container ">
+            <div class="row justify-content-center p-5">
+              <div class=" col-md-6 col-lg-4" id="bg-password">
+                <div class="login-wrap py-5 text-center">
+                  <h3 class="text-center mb-0 ">Forgot your<br/> password?</h3>
+                  <p class="text-center p-2">Recover by entering the information below</p>
+                  <form action="#" class="login-form">
+                    <div class="form-group">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
+                    <div class="form-group justify-center m-0">
+                      <div class="actions p-2 " >
+                        <%= f.submit "Send me reset password instructions" %>
+                      </div>
+                    </div>
+                  </form>
+                  or
+                  <div class="w-100 text-center text ">
+                    <%= render "devise/shared/links" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </section>
+    </div>
+	</body>
+</html>
 
-<%= render "devise/shared/links" %>
+
