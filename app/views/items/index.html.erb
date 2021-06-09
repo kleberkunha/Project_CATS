@@ -1,117 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="shortcut icon" href="images/favicon.ico">
-		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/application.css">
-		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/bootstrap.css">
-		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/style.css">
-		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/cssdirect.css">
-		<link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/index.css">
-		<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  	</head>
-	<body>
-		<section class="cover-1 text-center">
-			<div class="box-div border border-light d-flex justify-content-end">
-				<div class="part-1-sub-box"></div>
-				<div class="subbox-1">
-					<div class="under-sub-box">
-						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-								<img class="d-block w-100" src="https://c4.wallpaperflare.com/wallpaper/228/762/323/cheshire-cat-alice-in-wonderland-animals-fantasy-art-wallpaper-preview.jpg" alt="First slide">
-								</div>
-								<div class="carousel-item">
-								<img class="d-block w-100" src="https://p4.wallpaperbetter.com/wallpaper/724/565/146/cat-4k-computer-backgrounds-wallpaper-preview.jpg" alt="Second slide">
-								</div>
-								<div class="carousel-item">
-								<img class="d-block w-100" src="https://wallpapermemory.com/uploads/398/cat-wallpaper-hd-1920x1080-424871.jpg" alt="Third slide">
-								</div>
-							</div>
-							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-								
-							</a>
-							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="features-4 text-center">
-			<div class="container ">
-				<div class="sub-container-photos p-4">
-					<div class="row d-flex justify-content-center" >
-						<% @items.each do |item| %>
-							<div class="col-md-3 col-feature">
-								<div class="rounded-circle justify-center">
-									<em class="fa fa-2x fa-paint-brush"></em>
-								</div>
-								<h4><%= item.title %></h4>
-								<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
-								<%= link_to "Check Photo n°#{item.id}", item_path(item.id) %>
-							</div>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="contact-2">
-			<div class="container">
-				<div class="row contact-details">
-					<div class="col-sm-8 offset-sm-2 text-center">
-						<h2>Contact Us</h2>
-						<p class="lead constrain-width mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. At aliquam rhoncus donec magna turpis, dictum sit amet tellus at, commodo elementum sapien.</p>
-						<div class="divider"></div>
-						<h4>Ask us a question</h4>
-						<form class="contact-form mt-4">
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" class="form-control-custom mb-4" placeholder="Name" value="Your name">
-								</div>
-								<div class="col-md-6">
-									<input type="text" class="form-control-custom mb-4" placeholder="Email address" value="Email address">
-								</div>
-								<br />
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<textarea class="form-control-custom mb-4" rows="3">Your Message</textarea><br />
-									<button type="submit" class="btn btn-primary btn-lg mb-4">Send Message</button>
-								</div> 
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
-		<footer class="footer-4">
-			<div class="container">
-				<div class="row ">
-					<div class="col-md-6 text-md-right mt-2 pt-1">
-						<p class="copyright ">Copyright &copy; YourStartup. All rights reserved.</p>
-					</div>
-					<div class="col-md-6 text-center text-md-right mb-4">
-						<ul class="social">
-							<li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>
-							<li><a href="#" title="Twitter" class="fa fa-twitter"></a></li>
-							<li><a href="#" title="Google+" class="fa fa-google"></a></li>
-							<li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>
-							<li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>
-							<div class="clear"></div>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<script src="js/jquery-3.1.1.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/application.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/bootstrap.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/style.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/cssdirect.css">
+    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <section class="cover-1 text-center">
+      <div class="box-div border border-light d-flex justify-content-end">
+        <div class="part-1-sub-box"></div>
+          <div class="subbox-1">
+            <div class="under-sub-box">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://c4.wallpaperflare.com/wallpaper/228/762/323/cheshire-cat-alice-in-wonderland-animals-fantasy-art-wallpaper-preview.jpg" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://p4.wallpaperbetter.com/wallpaper/724/565/146/cat-4k-computer-backgrounds-wallpaper-preview.jpg" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://wallpapermemory.com/uploads/398/cat-wallpaper-hd-1920x1080-424871.jpg" alt="Third slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="features-4 text-center">
+      <div class="container ">
+        <div class="sub-container-photos p-4">
+          <div class="row d-flex justify-content-center" >
+            <% @items.each do |item| %>
+              <div class="col-md-3 col-feature">
+                <div class="rounded-circle justify-center">
+                  <img src=<%= item.image_url %> alt=<%= item.image_url %>>
+                  <em class="fa fa-2x fa-paint-brush"></em>
+                </div>
+                <h4><%= item.title %></h4>
+                <p><%= item.description %></p>
+                <%= link_to "Check Photo n°#{item.id}", item_path(item.id) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  </body>
 </html>
