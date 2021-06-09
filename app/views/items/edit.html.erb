@@ -1,6 +1,6 @@
-<% if !@item_hash['item'].nil? && user_signed_in? && admin? %>
+<% if !@item.nil? && user_signed_in? && admin? %>
   
-  <h1>Modifie les détails de ta photo n°<%= @item_hash['index'] %></h1>
+  <h1>Modifie les détails de ta photo n°<%= @item.id %></h1>
 
   <% if !@item.nil? && @item.errors.any? %>
     <div class="alert alert-danger" role="alert">
@@ -13,24 +13,24 @@
     </div>
   <% end %>
   
-  <%= form_tag item_path(@item_hash['index']), method: "post" do %>
+  <%= form_tag item_path(@item.id), method: "post" do %>
 
     <input type="hidden" name ="_method" value="put">
 
     <%= label_tag 'Titre' %>
-    <%= text_field_tag 'title', (@item_hash['item'].title if !@item_hash['item'].title.nil?), size: 150, minlength: 5, maxlength: 140 %>
+    <%= text_field_tag 'title', (@item.title if !@item.title.nil?), size: 150, minlength: 5, maxlength: 140 %>
     <br /> <br />
     
     <%= label_tag 'Description' %>
-    <%= text_area_tag 'description', (@item_hash['item'].description if !@item_hash['item'].description.nil?), size: "25x10", minlength: 20, maxlength: 1000 %>
+    <%= text_area_tag 'description', (@item.description if !@item.description.nil?), size: "25x10", minlength: 20, maxlength: 1000 %>
     <br /> <br />
     
     <%= label_tag 'Prix en euros' %>
-    <%= number_field_tag 'price', (@item_hash['item'].price if !@item_hash['item'].price .nil?), min: 1, max: 1000, step: 1 %>
+    <%= number_field_tag 'price', (@item.price if !@item.price .nil?), min: 1, max: 1000, step: 0.05 %>
     <br /> <br />
     
     <%= label_tag 'URL' %>
-    <%= text_field_tag 'image_url', (@item_hash['item'].image_url if !@item_hash['item'].image_url.nil?), size: 550, minlength: 20, maxlength: 540 %>
+    <%= text_field_tag 'image_url', (@item.image_url if !@item.image_url.nil?), size: 150, minlength: 20, maxlength: 140 %>
     <br /> <br />
     
     <%= submit_tag "Enregistrer cette nouvelle version de ta photo" %>
@@ -40,14 +40,14 @@
   <BR>
   <div>
     <p>
-      <a href="<%= item_path(@item_hash['index']) %>" class="btn btn-danger btn-sm" role="button" data-confirm="Es-tu certain de vouloir supprimer définitivement cette photo?" data-method="DELETE">Supprimer cette photo</a>
+      <a href="<%= item_path(@item.id) %>" class="btn btn-danger btn-sm" role="button" data-confirm="Es-tu certain de vouloir supprimer définitivement cette photo?" data-method="DELETE">Supprimer cette photo</a>
     </p>
   </div>
 
-<% elsif @item_hash['item'].nil? %>
+<% elsif @item.nil? %>
 
   <div class="alert alert-danger" role="alert">
-    <p>Aucune photo de n°<%= @item_hash['index'] %> n'existe dans la base!</p>
+    <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
   </div>
 
 <% else %>

@@ -3,45 +3,43 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/items_show.css">
-	</head>
-	<body>
+  </head>
+  <body>
     <div class="show-bg">
+      <BR>
+      <BR>
       <section class="ftco-section">
-        <% if !@item_hash['item'].nil? && user_signed_in? %>
-          <BR>
-          <% if !notice.nil? %>
-            <div class="alert alert-success" role="alert">
-              <p id="notice"><%= notice %></p>
-            </div>
-          <% end %>
-          <BR>
+        <% if !@item.nil? %>
           <div class="container " id="card-box">
             <div class="card mb-3" >
-              <img class="card-img-top" src="https://c4.wallpaperflare.com/wallpaper/309/31/682/cat-new-year-wallpaper-preview.jpg" alt="Card image cap">
-              <div class="card-body text-center p-3">
-                <h5 class="card-title"><%= @item_hash['item'].title %></h5>
-                <p class="card-text"><p class="content"><%= @item_hash['item'].description %></p>
-                <p>La date d'ajout de la photo : <%= @item_hash['item'].created_at %></p>
-                <p>La date de dernière modification des détails de la photo : <%= @item_hash['item'].updated_at %></p>
-                <p>Son prix : <%= @item_hash['item'].price %></p>
+              <img class="card-img-top" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
+              <div class="card-body text-center p-2">
+                <h5 class="card-title"><%= @item.title %></h5>
+                <p class="card-text"><p class="content"><%= @item.description %></p>
+                <p>Son prix : <%= number_with_precision(@item.price, :precision => 2, :delimiter => ' ', :separator => ',') %> &euro;</p>
+                <p>La date d'ajout de la photo : <%= @item.created_at.strftime("%d/%m/%Y à %T %z") %></p>
+                <p>La date de dernière modification des détails de la photo : <%= @item.updated_at.strftime("%d/%m/%Y à %T %z") %></p>
               </div>
             </div>
           </div>
-        <% elsif @item_hash['item'].nil? %>
-          <div class="alert alert-danger" role="alert">
-            <p>Aucune photo de n°<%= @item_hash['index'] %> n'existe dans la base!</p>
-          </div>
+          <% if user_signed_in? && admin? %>
+            <div>
+              <p>
+                <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
+              </p>
+            </div>
+          <% end %>
         <% else %>
           <div class="alert alert-danger" role="alert">
-            <p>Tu n'es pas connecté : tu n'es donc pas autorisé à visualiser les détails de cette photo!</p>
+            <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
           </div>
         <% end %>
       </section>
     </div>
-	</body>
+  </body>
 </html>
 
 
