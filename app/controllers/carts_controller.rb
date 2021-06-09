@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   
-  before_action :is_owner, only: [:show, :edit, :destroy]
+  before_action :exist?, is_owner, only: [:show, :edit, :destroy]
   
   def show
     @cart = Cart.find(params[:id])
@@ -21,6 +21,13 @@ class CartsController < ApplicationController
   end
 
   private
+
+  def exist?
+    if Cart.find(session[:cart_id]).length > 0
+      update
+    else
+      new
+  end
 
   def is_owner
     if Cart.find(session[:cart_id]).id.to_i != params[:id].to_i
