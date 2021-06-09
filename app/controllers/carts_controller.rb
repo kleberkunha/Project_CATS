@@ -11,7 +11,7 @@ class CartsController < ApplicationController
   end
 
   def create
-    @cart.new(user_id = current_user.id)
+    @cart=Cart.new(user_id = current_user.id)
     if @cart.save
       flash[:success] = "Cart created"
       redirect_to controller:'carts', action: 'show', id: @cart.id
