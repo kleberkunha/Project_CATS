@@ -1,0 +1,12 @@
+.show-bg{
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/988/10/387/cat-images-cat-photos-cat-cats-wallpaper-preview.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 94.9vh;
+}
+#card-box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
