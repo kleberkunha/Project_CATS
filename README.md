@@ -72,3 +72,5 @@ Kittens_market$ heroku run rails db:seed
 
 * How to run the test suite
 Kittens_market$ heroku open (=> https://iziteam-thp-kittens-market.herokuapp.com )
+
+PUSH is good
