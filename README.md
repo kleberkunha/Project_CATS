@@ -71,9 +71,4 @@ Kittens_market$ heroku ps:scale web=1
 Kittens_market$ heroku run rails db:seed
 
 * How to run the test suite
-
-<<<<<<< HEAD
-/*testing push K*/
-=======
 Kittens_market$ heroku open (=> https://iziteam-thp-kittens-market.herokuapp.com )
->>>>>>> dd0779bb342910fbf76c352f086c3c14debfbd0d
