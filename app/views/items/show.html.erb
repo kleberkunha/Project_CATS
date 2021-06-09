@@ -1,45 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/items_show.css">
-  </head>
-  <body>
-    <div class="show-bg">
-      <BR>
-      <BR>
-      <section class="ftco-section">
-        <% if !@item.nil? %>
-          <div class="container " id="card-box">
-            <div class="card mb-3" >
-              <img class="card-img-top" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
-              <div class="card-body text-center p-2">
-                <h5 class="card-title"><%= @item.title %></h5>
-                <p class="card-text"><p class="content"><%= @item.description %></p>
-                <p>Son prix : <%= number_with_precision(@item.price, :precision => 2, :delimiter => ' ', :separator => ',') %> &euro;</p>
-                <p>La date d'ajout de la photo : <%= @item.created_at.strftime("%d/%m/%Y à %T %z") %></p>
-                <p>La date de dernière modification des détails de la photo : <%= @item.updated_at.strftime("%d/%m/%Y à %T %z") %></p>
-              </div>
-            </div>
+<div class="show-bg">
+  <BR>
+  <BR>
+  <section class="ftco-section">
+    <% if !@item.nil? %>
+      <div class="container " id="card-box">
+        <div class="card mb-3" >
+          <img class="card-img-top" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
+          <div class="card-body text-center p-2">
+            <h5 class="card-title"><%= @item.title %></h5>
+            <p class="card-text"><p class="content"><%= @item.description %></p>
+            <p>Son prix : <%= number_with_precision(@item.price, :precision => 2, :delimiter => ' ', :separator => ',') %> &euro;</p>
+            <p>La date d'ajout de la photo : <%= @item.created_at.strftime("%d/%m/%Y à %T %z") %></p>
+            <p>La date de dernière modification des détails de la photo : <%= @item.updated_at.strftime("%d/%m/%Y à %T %z") %></p>
           </div>
-          <% if user_signed_in? && admin? %>
-            <div>
-              <p>
-                <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
-              </p>
-            </div>
-          <% end %>
-        <% else %>
-          <div class="alert alert-danger" role="alert">
-            <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
-          </div>
-        <% end %>
-      </section>
-    </div>
-  </body>
-</html>
+        </div>
+      </div>
+      <% if user_signed_in? && admin? %>
+        <div>
+          <p>
+            <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
+          </p>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="alert alert-danger" role="alert">
+        <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
+      </div>
+    <% end %>
+  </section>
+</div>
 
 

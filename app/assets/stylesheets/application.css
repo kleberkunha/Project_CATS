@@ -12,4 +12,20 @@
  *
  *= require_tree .
  *= require_self
+ *= require edit
+ *= require cssdirect
+ =* require login_ui_css
+ =* require style
+ =* require navbar.css
+ =* require password.css
+ =* require register.css
+ =* require index
+ =* require contact
+ =* require footer
+ =* require profile
+
+ =* require bootstrap-grid
+ =* require bootstrap-reboot
+ =* require bootstrap
  */
+

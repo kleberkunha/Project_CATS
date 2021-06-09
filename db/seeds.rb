@@ -30,7 +30,7 @@ users_array << anonymous_user
 
 puts "\nGénération plus aléatoire :"
 
-n = 3
+n = 16
 
 n.times do |index|
   first_name = Faker::Name.unique.first_name
