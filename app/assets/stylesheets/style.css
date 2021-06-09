@@ -201,10 +201,10 @@ li.nav-item .btn-white {
   color: #46484a; }
 
 .cover-1 {
-  background: url("https://www.wallpaperup.com/uploads/wallpapers/2013/08/12/133027/e9cc83ec06651d849c18ed8b7203aaea-700.jpg") center;
-  background-size: cover;
-  box-shadow: 0px 0px 20px 0px black;
-  min-height: 62rem;
+  background: url("https://www.worldwidegroup.global/wp-content/uploads/2015/02/black-background.jpg") center;
+  background-size: contain;
+  box-shadow: 0px 5px 80px 50px black;
+  min-height: 20rem;
   height: auto;
   border-radius: 0;
   width: 100%;
@@ -464,3 +464,4 @@ li.nav-item .btn-white {
     padding: 0;
     display: flex;
     justify-content: center; } }
+
