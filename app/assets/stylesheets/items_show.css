@@ -1,0 +1,12 @@
+.show-bg{
+    background-image: url("https://free4kwallpapers.com/uploads/originals/2019/04/07/hot-air-balloons-over-iceland-wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 94.9vh;
+}
+#card-box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

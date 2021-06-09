@@ -1,0 +1,14 @@
+.fk-footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fk-footer section{
+  display: flex;
+  justify-content: center;
+}
+
+.copyright{
+  font-size: 19px;
+}

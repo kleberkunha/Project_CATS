@@ -1,0 +1,47 @@
+nav{
+  background-color: rgba(255, 255, 255, 0.0);
+}
+
+
+.box-div{
+  width: 100%;
+  background-image: url("https://free4kwallpapers.com/uploads/originals/2019/04/07/hot-air-balloons-over-iceland-wallpaper.jpg");
+  background-position: center;
+}
+.fk-nav {
+  border-radius: 20px 20px 0px 0px;
+  border: 0px;
+  width: 300px;
+  font-weight: 700;
+  background-color:rgb(235, 225, 225);
+}
+.fk-nav:hover{
+  background-color: rgb(215, 215, 255);
+  box-shadow: 20px black; 
+}
+
+.navbar-nav li{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+.navbar-nav{
+  margin-bottom: -16px;
+}
+
+.nav-link{
+  color:blue;
+}
+
+.navbar-toggler{
+  background-color:black;
+  color: white;
+  width: 80px;
+}
+.navbar-toggler-icon{
+  display: flex;
+  justify-content: center;  
+  margin-left: 13px;
+  margin-top: 5px;
+}

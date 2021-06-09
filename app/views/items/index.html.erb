@@ -1,0 +1,38 @@
+<div class="bg-index">
+  <div class="box-welcome-container">
+    <div class="box-welcome-sub p-4">
+      <div class="box-content">
+        <p class="line-1 anim-typewriter text-dark">KittenMarket.com</p>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center border p-4" id="box-photos">
+    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+      <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <% @items.each do |item| %>
+            <div class="col-md-3" style="float:left">
+              <div class="card mb-2">
+                <img class="card-img-top"
+                  src=<%= item.image_url %> alt=<%= item.image_url %>>
+                <div class="card-body">
+                  <h4 class="card-title"><%= item.title %></h4>
+                  <p class="card-text"><%= item.description %></p>
+                  <button class="btn btn-primary"<%= link_to "Check Photo n°#{item.id}", item_path(item.id)%>></button>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

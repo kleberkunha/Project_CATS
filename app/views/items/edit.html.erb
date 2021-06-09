@@ -1,0 +1,59 @@
+<% if !@item.nil? && user_signed_in? && admin? %>
+  
+  <h1>Modifie les détails de ta photo n°<%= @item.id %></h1>
+
+  <% if !@item.nil? && @item.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <p>Nous n'avons pas réussi à mettre à jour les détails de la photo pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form_tag item_path(@item.id), method: "post" do %>
+
+    <input type="hidden" name ="_method" value="put">
+
+    <%= label_tag 'Titre' %>
+    <%= text_field_tag 'title', (@item.title if !@item.title.nil?), size: 150, minlength: 5, maxlength: 140 %>
+    <br /> <br />
+    
+    <%= label_tag 'Description' %>
+    <%= text_area_tag 'description', (@item.description if !@item.description.nil?), size: "25x10", minlength: 20, maxlength: 1000 %>
+    <br /> <br />
+    
+    <%= label_tag 'Prix en euros' %>
+    <%= number_field_tag 'price', (@item.price if !@item.price .nil?), min: 1, max: 1000, step: 0.05 %>
+    <br /> <br />
+    
+    <%= label_tag 'URL' %>
+    <%= text_field_tag 'image_url', (@item.image_url if !@item.image_url.nil?), size: 150, minlength: 20, maxlength: 140 %>
+    <br /> <br />
+    
+    <%= submit_tag "Enregistrer cette nouvelle version de ta photo" %>
+
+  <% end %>
+  
+  <BR>
+  <div>
+    <p>
+      <a href="<%= item_path(@item.id) %>" class="btn btn-danger btn-sm" role="button" data-confirm="Es-tu certain de vouloir supprimer définitivement cette photo?" data-method="DELETE">Supprimer cette photo</a>
+    </p>
+  </div>
+
+<% elsif @item.nil? %>
+
+  <div class="alert alert-danger" role="alert">
+    <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
+  </div>
+
+<% else %>
+
+  <div class="alert alert-danger" role="alert">
+    <p>Tu n'es pas l'admin de ce site : tu n'es donc pas autorisé à modifier les détails de la photo en base!</p>
+  </div>
+
+<% end %>
