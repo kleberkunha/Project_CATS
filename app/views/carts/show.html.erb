@@ -1,23 +1,38 @@
 <h1>My Cart</h1>
-<% if @cart.lenght > 0 %>
-<table class="table">
-  <thead>
+<% if @cart != nil %>
+  <table class="table">
+    <thead>
+        <tr>
+        <th scope="col" colspan="2">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <% @cart.items.each do |cart_item| %>
       <tr>
-      <th scope="col" colspan="2">Product</th>
-      <th scope="col">Price</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <% @cart.each do |cart_item| %>
-    <tr>
-      <td>
-        <%= #image photo %>
-      </td>
-      <td><%= Item.find_by(id : cart_item.id).title %></td>
-      <td><%= number_to_currency(cart_item.item.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
-      <td class="text-center w-25">
-        <%= link_to "Delete product", cart_item_path(cart_item), method: "delete", class: "btn btn-sm btn-danger" %>
-      </td>
-    </tr>
-  <% end %>
-</table>  
+        <td>
+          <img src=<%= item.image_url %> alt=<%= item.image_url %>>
+        </td>
+        <td><%= Item.find_by(id: cart_item.cart_id).title %></td>
+        <td><%= number_to_currency(Item.find_by(id: cart_item.cart_id).price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+        <td><%= link_to "Delete product", item_path(Item.find_by(id: cart_item.cart_id)), method: "delete", class: "btn btn-sm btn-danger" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <td><%= link_to "The cart is empty, click to continue your shopping", root_path %></td>
+<% end %>
+
+<div class="columns">
+  <div class="column">
+    <button><%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %></button>
+  </div>
+  <div class="column">
+    <h4>
+      <span>Total:</span> <%= number_to_currency(@cart.total_price) %>
+    </h4>
+  </div>
+  <div class="column">
+    <button><%= link_to 'Confirm your command', new_order_path(@cart)%></button>
+  </div>
+</div>
