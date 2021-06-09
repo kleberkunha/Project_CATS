@@ -1,0 +1,23 @@
+<h1>My Cart</h1>
+<% if @cart.lenght > 0 %>
+<table class="table">
+  <thead>
+      <tr>
+      <th scope="col" colspan="2">Product</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <% @cart.each do |cart_item| %>
+    <tr>
+      <td>
+        <%= #image photo %>
+      </td>
+      <td><%= Item.find_by(id : cart_item.id).title %></td>
+      <td><%= number_to_currency(cart_item.item.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+      <td class="text-center w-25">
+        <%= link_to "Delete product", cart_item_path(cart_item), method: "delete", class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>  

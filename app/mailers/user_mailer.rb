@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'ileceis@msn.com'
+  default from: ENV['MAILJET_ADRESS']
  
   def welcome_email(user)
     #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
