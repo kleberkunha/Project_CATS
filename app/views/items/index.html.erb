@@ -26,7 +26,7 @@
                 <div class="card-body">
                   <h4 class="card-title"><%= item.title %></h4>
                   <p class="card-text"><%= item.description %></p>
-                  <button class="btn btn-primary"<%= link_to "Check Photo n°#{item.id}", item_path(item.id)%>></button>
+                  <%= link_to "Check Photo n°#{item.id}", item_path(item.id)%>
                 </div>
               </div>
             </div>
