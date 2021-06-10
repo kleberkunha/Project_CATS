@@ -31,9 +31,8 @@ users_array << anonymous_user
 puts "\nGénération plus aléatoire :"
 
 n = 3 
-x = 1
 
-x.times do |index|
+times do |index|
   first_name = Faker::Name.unique.first_name
   last_name = Faker::Name.unique.last_name
   email = "#{first_name.gsub(' ', '').downcase}_#{last_name.gsub(' ', '').downcase}@yopmail.com"
