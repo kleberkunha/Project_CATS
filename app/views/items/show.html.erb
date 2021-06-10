@@ -15,12 +15,21 @@
           </div>
         </div>
       </div>
+      <% if user_signed_in? && !admin? %>
+        <div>
+          <p>
+            <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
+          </p>
+        </div>
+        <br />
+      <% end %>
       <% if user_signed_in? && admin? %>
         <div>
           <p>
             <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
           </p>
         </div>
+        <br />
       <% end %>
     <% else %>
       <div class="alert alert-danger" role="alert">

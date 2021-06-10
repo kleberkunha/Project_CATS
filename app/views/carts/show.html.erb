@@ -1,5 +1,6 @@
 <h1>My Cart</h1>
-<% if @cart != nil %>
+<%= @total_price = 0.0 %>
+<% if !@cart.nil? && !@cart_lines.nil? && @cart_lines.length > 0 %>
   <table class="table">
     <thead>
         <tr>
@@ -8,14 +9,15 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <% @cart.items.each do |cart_item| %>
+    <% @cart_lines.each do |cart_line| %>
+      <%= @total_price += cart_line.item.price %>
       <tr>
         <td>
-          <img src=<%= item.image_url %> alt=<%= item.image_url %>>
+          <img src=<%= cart_line.item.image_url %> alt=<%= cart_line.item.image_url %>>
         </td>
-        <td><%= Item.find_by(id: cart_item.cart_id).title %></td>
-        <td><%= number_to_currency(Item.find_by(id: cart_item.cart_id).price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
-        <td><%= link_to "Delete product", item_path(Item.find_by(id: cart_item.cart_id)), method: "delete", class: "btn btn-sm btn-danger" %></td>
+        <td><%= cart_line.item.title %></td>
+        <td><%= number_to_currency(cart_line.item.price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></td>
+        <td><%= link_to "Delete product", user_cart_cart_line_path(@cart.user.id, @cart.id, cart_line.id), method: "delete", class: "btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </table>
@@ -25,14 +27,14 @@
 
 <div class="columns">
   <div class="column">
-    <button><%= link_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %></button>
+    <button><%= link_to 'Empty Cart', user_cart_path(@cart.user.id, @cart.id), method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %></button>
   </div>
   <div class="column">
     <h4>
-      <span>Total:</span> <%= number_to_currency(@cart.total_price) %>
+      <span>Total:</span> <%= number_to_currency(@total_price) %>
     </h4>
   </div>
   <div class="column">
-    <button><%= link_to 'Confirm your command', new_order_path(@cart)%></button>
+    <%= button_to "Confirm your command", new_user_order_path(@cart.user.id), params: {cart_id: @cart.id, total_price: @total_price}, class: "btn btn-primary btn-sm", role: "button" %>
   </div>
 </div>

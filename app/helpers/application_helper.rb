@@ -11,7 +11,7 @@ module ApplicationHelper
   def create_cart_and_assign_to_current_user
     if current_user != nil && current_user.cart == nil
       puts "$" * 60
-      puts "Création du panieri pour le user n°#{current_user.id}."
+      puts "Création du panier pour le user n°#{current_user.id}."
       cart = Cart.create(user: current_user)
       puts "cart : #{cart}"
       puts "$" * 60
