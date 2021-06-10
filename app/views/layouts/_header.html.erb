@@ -26,6 +26,11 @@
             <li class="nav-item nav-link">
               <button class="fk-nav "><%= link_to "Log-out", destroy_user_session_path, method: :delete, :data => {:confirm => "Êtes-vous sûr de vouloir vous déconnecter ?"}, class: "nav-link" %></button>
             </li>
+            <% if user_signed_in? && admin? %>
+              <li class="nav-item nav-link">
+                <button class="fk-nav "><%= link_to "Add an item", new_item_path, class: "nav-link" %></button>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
