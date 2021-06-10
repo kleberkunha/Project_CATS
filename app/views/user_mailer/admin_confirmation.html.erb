@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi TKP Administrator!</h1>
+    <p>An order has just been placed with The Kitten Project.</p>
+    <p>The details of the order are as follows:</p>
+    <ul>
+      <li>Customer n°<%= @order.user.id %></li>
+      <li>Customer email: <%= @order.user.email %></li>
+      <li>Amount paid: <%= number_to_currency(@order.amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></li>
+    </ul>
+  </body>
+</html>
