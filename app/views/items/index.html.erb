@@ -7,15 +7,7 @@
     </div>
   </div>
   <div class="container text-center border p-4" id="box-photos">
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-      <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-      </div>
-      <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-      </ol>
+    <div id="">
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
           <% @items.each do |item| %>
@@ -26,7 +18,7 @@
                 <div class="card-body">
                   <h4 class="card-title"><%= item.title %></h4>
                   <p class="card-text"><%= item.description %></p>
-                  <%= link_to "Check Photo n°#{item.id}", item_path(item.id)%>
+                  <button class="button-cart btn"><%= link_to "Check Photo n°#{item.id}", item_path(item.id)%></button>
                 </div>
               </div>
             </div>

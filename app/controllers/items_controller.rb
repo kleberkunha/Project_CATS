@@ -104,7 +104,12 @@ class ItemsController < ApplicationController
 
   def is_admin?
     item = get_item
-    unless !item.nil? && admin?
+    puts "$" * 60
+    puts "Salut, je suis dans le serveur pour une vérification du statut de l'utilisateur connecté"
+    puts "item : #{@item}"
+    puts "admin? : #{current_user.id.to_s == '1'}"
+    puts "$" * 60
+    unless admin?
       redirect_to items_path, notice: "Vous n'êtes pas l'administrateur du site!"
     end
   end

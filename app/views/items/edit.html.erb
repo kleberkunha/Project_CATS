@@ -60,28 +60,21 @@
           <div class="justify-center" id="button-resgister">
             <%= submit_tag "Enregistrer cette nouvelle version de ta photo" %>
           </div>
-
         <% end %>
-          
         <BR>
         <div class=" justify-center">
           <p>
             <a href="<%= item_path(@item.id) %>" class="btn btn-danger btn-sm" role="button" data-confirm="Es-tu certain de vouloir supprimer définitivement cette photo?" data-method="DELETE">Supprimer cette photo</a>
           </p>
         </div>
-
       <% elsif @item.nil? %>
-
         <div class="alert alert-danger" role="alert">
           <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
         </div>
-
       <% else %>
-
         <div class="alert alert-danger" role="alert">
           <p>Tu n'es pas l'admin de ce site : tu n'es donc pas autorisé à modifier les détails de la photo en base!</p>
         </div>
-
       <% end %>
       </form>
     </div>
