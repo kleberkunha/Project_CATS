@@ -74,9 +74,25 @@
   max-width: 250px;
   max-height: 150px;
 }
+.card-img-show{
+  max-width: 600px;
+  max-height: 400px;
+  border-radius: 50px 50px 0px 0px;
+}
 
 
 .card:hover{
   border: 1px solid blue;
   box-shadow: 0px 0px 20px 0px black; 
+}
+
+ 
+.card-show:hover{
+  border: 1px solid blue;
+
+  box-shadow: 0px 0px 20px 0px black; 
+}
+.card-show{
+  background-color: white;
+  border-radius: 50px;
 }
