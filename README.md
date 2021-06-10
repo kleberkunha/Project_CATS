@@ -50,11 +50,11 @@ Création de l'admin du site : un utilisateur de password "Anonymous", qui a pou
 
 Génération plus aléatoire :
 
-Le password du 2-ième utilisateur - de prénom "Salvador", de nom "Hagenes" et d'email "salvador_hagenes@yopmail.com" - créé par ce seed sera : "IyRhNk20".
+Le password du 2-ième utilisateur - de prénom "Yi", de nom "Yundt" et d'email "yi_yundt@yopmail.com" - créé par ce seed sera : "MfHgYf".
 
-Le password du 3-ième utilisateur - de prénom "Harrison", de nom "Towne" et d'email "harrison_towne@yopmail.com" - créé par ce seed sera : "5DjCtEq".
+Le password du 3-ième utilisateur - de prénom "Octavio", de nom "Brekke" et d'email "octavio_brekke@yopmail.com" - créé par ce seed sera : "VwHvImO".
 
-Le password du 4-ième utilisateur - de prénom "Julianne", de nom "Prohaska" et d'email "julianne_prohaska@yopmail.com" - créé par ce seed sera : "EoKkQmA5e".
+Le password du 4-ième utilisateur - de prénom "Marion", de nom "Herman" et d'email "marion_herman@yopmail.com" - créé par ce seed sera : "SzHqO8".
 
 2. En ce qui concerne l'environnement de production :
 
