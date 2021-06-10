@@ -13,25 +13,23 @@
             <p>La date d'ajout de la photo : <%= @item.created_at.strftime("%d/%m/%Y à %T %z") %></p>
             <p>La date de dernière modification des détails de la photo : <%= @item.updated_at.strftime("%d/%m/%Y à %T %z") %></p>
           </div>
-          <div>
-            <p>
-              <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
-            </p>
-          </div>
-          <div>
-          <p>
-            <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
-          </p>
-        </div>
-        <br />
+          <% if user_signed_in? && admin? %>
+            <div>
+              <p>
+                <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
+              </p>
+            </div>
+          <% end %>
+          <% if user_signed_in? && !admin? %>
+            <div>
+              <p>
+                <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
+              </p>
+            </div>
+          <% end %>
+          <br />
         </div>
       </div>
-      <% if user_signed_in? && !admin? %>
-      <% end %>
-      <% if user_signed_in? && admin? %>
-        
-        <br />
-      <% end %>
     <% else %>
       <div class="alert alert-danger" role="alert">
         <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
