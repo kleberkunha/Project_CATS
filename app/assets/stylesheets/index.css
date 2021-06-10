@@ -69,3 +69,14 @@
   margin-top: 50px;
   margin-right: 75px;
 }
+
+.card-img-top{
+  max-width: 250px;
+  max-height: 150px;
+}
+
+
+.card:hover{
+  border: 1px solid blue;
+  box-shadow: 0px 0px 20px 0px black; 
+}

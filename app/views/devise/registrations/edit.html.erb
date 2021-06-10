@@ -1,63 +1,47 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="edit-bg">
+  <section class="ftco-section ">
+    <div class="container ">
+      <div class="row justify-content-center p-5 text-center">
+        <div class=" col-md-5 col-lg-6" id="bg-edit">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
 
-	  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+          <div class="field p-2">
+            <h3>Edit your password</h3>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
 
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/Kittens_market/app/assets/stylesheets/outside_css/edit.css">
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
 
-	</head>
-	<body>
-    <div class="edit-bg">
-      <section class="ftco-section ">
-        <div class="container ">
-          <div class="row justify-content-center p-5 text-center">
-            <div class=" col-md-5 col-lg-6" id="bg-edit">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-              <%= devise_error_messages! %>
-
-              <div class="field p-2">
-                <h3>Edit your password</h3>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-              </div>
-
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-              <% end %>
-
-              <div class="field p-2">
-                <%= f.label :password %> <i></i><br />
-                <%= f.password_field :password, autocomplete: "new-password" %>
-                <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
-                <% end %>
-              </div>
-
-              <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-
-              <div class="field p-3">
-                <%= f.label :current_password %> <i></i><br />
-                <%= f.password_field :current_password, autocomplete: "current-password" %>
-              </div>
-
-              <div class="actions">
-                <%= f.submit "Update" %>
-              </div>
+          <div class="field p-2">
+            <%= f.label :password %> <i></i><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
             <% end %>
-            <h3>Cancel my account</h3>
-            <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-          </div>   
-        </div>
-      </section>
-    </div>
-	</body>
-</html>
+          </div>
 
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field p-3">
+            <%= f.label :current_password %> <i></i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Update" %>
+          </div>
+        <% end %>
+        <h3>Cancel my account</h3>
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>   
+    </div>
+  </section>
+</div>
 
