@@ -37,7 +37,7 @@ def show
       cart_line_saved = CartLine.create("cart_id" => params[:id], "item_id" => params[:item_id])
       if cart_line_saved
         ok = true
-        redirect_to user_cart_path(current_user.id, params[:id]), status: :ok, notice: 'Cette superbe photo de chaton(s) a bien été ajoutée à ton panier !'
+        redirect_to user_cart_path(current_user.id, params[:id]), notice: 'Cette superbe photo de chaton(s) a bien été ajoutée à ton panier !'
       end
     end
     if !ok
@@ -56,7 +56,7 @@ def show
       @cart_lines.length.times do |index|
         @cart_lines[index].destroy
       end
-      redirect_to root_path, status: :ok, notice: 'Ton panier a bien été vidé !'
+      redirect_to root_path, notice: 'Ton panier a bien été vidé !'
     end
   end
 

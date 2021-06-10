@@ -11,6 +11,28 @@
             </div>
           </div>
         </div>
+        <%#-Ajout de la liste des commandes du user-%>
+          <table class="table">
+            <% n = 1 %>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Montant</th>
+              </tr>
+            </thead>
+            <% @user.orders.each do |order|%>
+              <tbody>
+                <tr>
+                  <th scope="row"> <%= n %> </th>
+                  <td> <%= order.created_at %> </td>
+                  <th scope="col">Montant</th>
+                  <% n = n+1 %>
+                </tr>
+              </tbody>
+            <% end %>
+        <%#-Ajout de la liste des commandes du user-%>
+
         <div class="py-4 px-4">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>

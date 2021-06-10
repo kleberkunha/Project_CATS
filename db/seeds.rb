@@ -55,11 +55,8 @@ n.times do |index|
                     )
   items_array << item
 
-  #order = Order.new()
-  #order.user_id = users_array[index+1].id
-  #order.item_id = items_array[index].id
-  #order.save
-  #orders_array << order
+  order = Order.create(user: User.all.sample)
+  orders_array << order
 end
 
 require 'table_print'
@@ -76,5 +73,5 @@ tp.set Item, :id,
 puts "\n#{items_array.length} photos créées :\n"
 tp Item.all
 
-#puts "\n#{orders_array.length} orders créées :\n"
-#tp Order.all
+puts "\n#{orders_array.length} orders créées :\n"
+tp Order.all
