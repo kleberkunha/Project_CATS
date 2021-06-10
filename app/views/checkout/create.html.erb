@@ -1,0 +1,5 @@
+<script type="text/javascript">
+  // Create an instance of the Stripe object with your publishable API key
+  var stripe = Stripe('<%= Rails.configuration.stripe[:stripe_publishable_key] %>');
+  stripe.redirectToCheckout({ sessionId: '<%= @session.id %>' }).then(function (result) { console.log(result.error.message); });
+</script>

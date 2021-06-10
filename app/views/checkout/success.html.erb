@@ -1,5 +1,18 @@
 <div class="container text-center my-5">
-  <h1>Succès</h1>
-  <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-  <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
+  <h1>Règlement effectué</h1>
+  <!-- shows users a success message -->
+  <!-- Cette VIEW s’affiche si le paiement est réussi. -->
+  <h2>
+    Merci pour votre achat de <strong><%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %></strong> !
+  </h2>
+  <div>
+    <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
+    <p>Un email vous a été envoyé à <%= current_user.email %> avec le récapitulatif de votre commande.</p>
+  </div>
+  <BR>
+  <div>
+    <p>
+      <a href="<%= user_path(current_user.id) %>" class="btn btn-danger btn-sm" role="button">Voir ta commande sur ta page de profil</a>
+    </p>
+  </div>
 </div>
