@@ -18,7 +18,7 @@
                 <div class="row text-muted">Kitten</div>
                 <div class="row"><%= cart_line.item.title %></div>
               </div>
-              <div class="col">Pri &euro; <%= number_to_currency(cart_line.item.price, separator: ",", delimiter: "", format: "%n %u") %><span class="close"><%= link_to "Delete product", user_cart_cart_line_path(@cart.user.id, @cart.id, cart_line.id), method: "delete", class: "btn btn-sm btn-danger" %></span></div>
+              <div class="col">Price &euro; <%= number_to_currency(cart_line.item.price, separator: ",", delimiter: "", format: "%n %u") %><span class="close"><%= link_to "Delete product", user_cart_cart_line_path(@cart.user.id, @cart.id, cart_line.id), method: "delete", class: "btn btn-sm btn-danger" %></span></div>
             </div>
           </div>
         <% end %>

@@ -67,5 +67,4 @@ def show
       flash[:warning] = "You cannot see other users' carts!"
     end
   end
-
 end

@@ -17,4 +17,9 @@ module ApplicationHelper
       puts "$" * 60
     end
   end
+
+  def get_cart
+    @cart = Cart.find_by(user_id: current_user.id)
+    @cart
+  end
 end
