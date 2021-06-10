@@ -1,48 +1,89 @@
 <% if user_signed_in? && admin? %>
-  <h1>Ajoute une photo de chaton(s) !</h1>
-  <% if !@item.nil? && @item.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <p>Nous n'avons pas réussi à ajouter la photo pour la (ou les) raison(s) suivante(s) :</p>
-      <ul>
-        <% @item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="container-fluid" id="box-container-new">
+    <div class="sub-container">
+      <div class="text-dark">
+        <% if !@item.nil? && @item.errors.any? %>
+          <div class="alert alert-danger" role="alert">
+            <p>Nous n'avons pas réussi à ajouter la photo pour la (ou les) raison(s) suivante(s) :</p>
+            <ul>
+              <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <% if !@item.nil? && @item.errors.any? %>
+          <div class="alert alert-danger" role="alert">
+            <p>Nous n'avons pas réussi à mettre à jour les détails de la photo pour la (ou les) raison(s) suivante(s) :</p>
+            <ul>
+              <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <form class="">
+          <h1 class="text-center">Ajoute une photo de chaton(s) !</h1>
+          <%= form_tag url_for(action: 'create'), method: "post" do %>
+            <input type="hidden" name ="_method" value="put">
+            <div class="justify-center">
+              <h3><label for="validationServer01"><%= label_tag 'Titre' %></label></h3>
+            </div>
+            <div class="form-row justify-center">
+              <div class=" mb-3">
+                <%= text_field_tag 'title', (@item.title if !@item.nil?), size: 50, minlength: 5, maxlength: 40 %>
+              </div>
+            </div>
+            <div class=" justify-center">
+              <h3><label for="validationServer02"><%= label_tag 'Description' %></label></h3>
+            </div>
+            <div class="justify-center">
+                <%= text_area_tag 'description', (@item.description if !@item.nil?), size: "100x10", minlength: 20, maxlength: 1000 %>
+            </div>
+            <div class=" pt-4 justify-center">
+            <label for="validationServerUsername"><%= label_tag 'Prix en euros' %></label>
+            </div>
+            <div class=" mb-3 justify-center">
+              <div class="input-group justify-center">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend3">£</span>
+                </div>
+                <%= number_field_tag 'price', (@item.price if !@item.nil?), min: 1, max: 1000, step: 0.05 %>
+                <div class="invalid-feedback">
+                  Please choose a price.
+                </div>
+              </div>
+            </div>
+            <div class=" justify-center">
+              <label for="validationServer03"><%= label_tag 'URL' %></label>
+            </div>
+            <div class="form-row justify-center">
+              <div class="">
+                <%= text_area_tag 'image_url', (@item.image_url if !@item.nil?), size: "100", minlength: 20, maxlength: 140 %>
+                <div class="invalid-feedback">
+                  Please provide an url.
+                </div>
+              </div>
+            </div>
+            <div class="justify-center" id="button-resgister">
+              <%= submit_tag "Enregistrer cette photo" %>
+            </div>
+          <% end %>
+          <BR>
+          <% elsif !admin? %>
+
+          <div class="alert alert-danger" role="alert">
+            <p>Tu n'es pas l'admin de ce site : tu n'es donc pas autorisé à ajouter une photo!</p>
+          </div>
+
+          <% else %>
+
+            <div class="alert alert-danger" role="alert">
+              <p>Tu n'es pas connecté : tu n'es donc pas autorisé à ajouter une photo!</p>
+            </div>
+
+          <% end %>
+        </form>
+      </div>
     </div>
-  <% end %>
-  
-  <%= form_tag url_for(action: 'create'), method: "post" do %>
-  
-    <%= label_tag 'Titre' %>
-    <%= text_field_tag 'title', (@item.title if !@item.nil?), size: 150, minlength: 5, maxlength: 140 %>
-    <br /> <br />
-  
-    <%= label_tag 'Description' %>
-    <%= text_area_tag 'description', (@item.description if !@item.nil?), size: "25x10", minlength: 20, maxlength: 1000 %>
-    <br /> <br />
-  
-    <%= label_tag 'Prix en euros' %>
-    <%= number_field_tag 'price', (@item.price if !@item.nil?), min: 1, max: 1000, step: 0.05 %>
-    <br /> <br />
-  
-    <%= label_tag 'URL' %>
-    <%= text_area_tag 'image_url', (@item.image_url if !@item.nil?), size: "150", minlength: 20, maxlength: 140 %>
-    <br /> <br />
-  
-    <%= submit_tag "Enregistrer cette photo" %>
-  
-  <% end %>
-
-<% elsif !admin? %>
-
-  <div class="alert alert-danger" role="alert">
-    <p>Tu n'es pas l'admin de ce site : tu n'es donc pas autorisé à ajouter une photo!</p>
   </div>
-
-<% else %>
-
-  <div class="alert alert-danger" role="alert">
-    <p>Tu n'es pas connecté : tu n'es donc pas autorisé à ajouter une photo!</p>
-  </div>
-
-<% end %>
