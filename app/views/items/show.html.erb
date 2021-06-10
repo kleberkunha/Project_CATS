@@ -19,19 +19,15 @@
             </p>
           </div>
           <div>
-          <p>
-            <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
-          </p>
+          <% if user_signed_in? && !admin? %>
+            <p>
+              <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
+            </p>
+          <% end %>
         </div>
         <br />
         </div>
       </div>
-      <% if user_signed_in? && !admin? %>
-      <% end %>
-      <% if user_signed_in? && admin? %>
-        
-        <br />
-      <% end %>
     <% else %>
       <div class="alert alert-danger" role="alert">
         <p>Aucune photo de n°<%= params[:id] %> n'existe dans la base!</p>
