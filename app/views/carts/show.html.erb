@@ -1,5 +1,4 @@
 <h1>My Cart</h1>
-<%= @total_price = 0.0 %>
 <% if !@cart.nil? && !@cart_lines.nil? && @cart_lines.length > 0 %>
   <table class="table">
     <thead>
@@ -10,7 +9,7 @@
       </tr>
     </thead>
     <% @cart_lines.each do |cart_line| %>
-      <%= @total_price += cart_line.item.price %>
+      <% @total_price += cart_line.item.price %>
       <tr>
         <td>
           <img src=<%= cart_line.item.image_url %> alt=<%= cart_line.item.image_url %>>
@@ -31,7 +30,7 @@
   </div>
   <div class="column">
     <h4>
-      <span>Total:</span> <%= number_to_currency(@total_price) %>
+      <span>Total:</span> <%= number_to_currency(@total_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
     </h4>
   </div>
   <div class="column">

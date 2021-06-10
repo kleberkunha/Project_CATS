@@ -1,13 +1,16 @@
 class CartsController < ApplicationController
-  
-  #before_action :exist?, is_owner, only: [:show, :edit, :destroy]
-  
-  def show
+before_action :is_owner, only: [:show, :update, :destroy, :index, :edit]
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :show, :index]
+
+def show
     puts "$" * 60
     puts "Salut, je suis dans le serveur pour l'affichage du panier de l'utilisateur"
     @cart = Cart.find(params[:id])
     @cart_lines = CartLine.where(:cart_id => params[:id])
     puts "Ceci est le contenu du hash params : #{params}"
+    puts "$" * 60
+    @total_price = 0.0
+    puts "Le total price est bien initialisé"
     puts "$" * 60
   end
 
@@ -19,7 +22,7 @@ class CartsController < ApplicationController
     @cart = Cart.new(user_id = current_user.id)
     if @cart.save
       flash[:success] = "Cart created"
-      redirect_to controller:'carts', action: 'show', id: @cart.id
+      #redirect_to controller:'carts', action: 'show', id: @cart.id
     else
       render root_path
     end
@@ -58,17 +61,8 @@ class CartsController < ApplicationController
   end
 
   private
-
-  def exist?
-    if Cart.find(session[:cart_id]).length > 0
-      update
-    else
-      render root_path
-    end 
-  end
-
   def is_owner
-    if Cart.find(session[:cart_id]).id.to_i != params[:id].to_i
+    if Cart.find_by(user_id:params[:user_id]).id.to_i != params[:id].to_i
       redirect_to "/"
       flash[:warning] = "You cannot see other users' carts!"
     end
