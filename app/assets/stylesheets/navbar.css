@@ -44,3 +44,11 @@ nav{
   margin-left: 13px;
   margin-top: 5px;
 }
+
+.box-btn-cart{
+  height: 50px;
+}
+
+.box-btn-cart path{
+  margin-bottom: 5px;
+}
