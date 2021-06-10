@@ -14,9 +14,11 @@
             <p>La date de dernière modification des détails de la photo : <%= @item.updated_at.strftime("%d/%m/%Y à %T %z") %></p>
           </div>
           <div>
-            <p>
-              <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
-            </p>
+            <% if user_signed_in? && admin? %>
+              <p>
+                <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
+              </p>
+            <% end %>
           </div>
           <div>
           <% if user_signed_in? && !admin? %>
