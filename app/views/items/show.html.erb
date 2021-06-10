@@ -4,8 +4,8 @@
   <section class="ftco-section">
     <% if !@item.nil? %>
       <div class="container " id="card-box">
-        <div class="card mb-3" >
-          <img class="card-img-top" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
+        <div class="card-show mb-3" >
+          <img class="card-img-show" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
           <div class="card-body text-center p-2">
             <h5 class="card-title"><%= @item.title %></h5>
             <p class="card-text"><p class="content"><%= @item.description %></p>
@@ -18,15 +18,15 @@
               <a href="<%= edit_item_path(@item.id) %>" class="btn btn-primary btn-sm" role="button">Modifier ou supprimer ma photo</a>
             </p>
           </div>
-        </div>
-      </div>
-      <% if user_signed_in? && !admin? %>
-        <div>
+          <div>
           <p>
             <%= button_to "Ajouter cette photo à mon panier", user_cart_path(current_user.id, current_user.cart.id), params: {item_id: @item.id}, method: :put, class: "btn btn-primary btn-sm", role: "button" %>
           </p>
         </div>
         <br />
+        </div>
+      </div>
+      <% if user_signed_in? && !admin? %>
       <% end %>
       <% if user_signed_in? && admin? %>
         
