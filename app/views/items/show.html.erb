@@ -4,8 +4,8 @@
   <section class="ftco-section">
     <% if !@item.nil? %>
       <div class="container " id="card-box">
-        <div class="card-show mb-3" >
-          <img class="card-img-show" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
+        <div class="card-show mb-3 container-fluid" >
+          <img class="card-img-show img-fluid" src=<%= @item.image_url %> alt=<%= @item.image_url %>>
           <div class="card-body text-center p-2">
             <h5 class="card-title"><%= @item.title %></h5>
             <p class="card-text"><p class="content"><%= @item.description %></p>
