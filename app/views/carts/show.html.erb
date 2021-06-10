@@ -33,7 +33,7 @@
               </h4>
             </div>
             <div class="">
-              <%= button_to "Confirm your command", new_user_order_path(@cart.user.id), params: {cart_id: @cart.id, total_price: @total_price}, class: "btn btn-primary btn-sm", role: "button" %>
+              <%= button_to "Confirm your command", checkout_create_path(total: @total_price), class: "btn btn-primary btn-sm", role: "button", remote: true %>
             </div>
           </div>
         </div>
