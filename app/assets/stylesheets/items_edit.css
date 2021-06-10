@@ -27,3 +27,13 @@
 .div-controller{
   border: 1px solid black;
 }
+
+.price-input{
+  height: 40px;
+}
+.input-group-prepend{
+  height: 30px;
+}
+.button-register-new-photo{
+  cursor: pointer;
+}

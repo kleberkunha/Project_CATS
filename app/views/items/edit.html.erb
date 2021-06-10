@@ -1,7 +1,6 @@
 <% if !@item.nil? && user_signed_in? && admin? %>
 <div class="container-flex" id="box-container-edit">
   <div class="sub-container">
-
     <div>
       <div class=" justify-center p-5">
         <h3>Modifie les détails de ta photo n°<%= @item.id %></h3>
@@ -30,10 +29,10 @@
           <div class=" justify-center">
             <h3><label for="validationServer02"><%= label_tag 'Description' %></label></h3>
           </div>
-          <div class=" justify-center">
+          <div class="justify-center">
               <%= text_area_tag 'description', (@item.description if !@item.description.nil?), size: "50x5", minlength: 20, maxlength: 1000 %>
           </div>
-          <div class=" mb-3 justify-center">
+          <div class=" pt-4 justify-center">
            <label for="validationServerUsername"><%= label_tag 'Prix en euros' %></label>
           </div>
           <div class=" mb-3 justify-center">
@@ -58,7 +57,7 @@
               </div>
             </div>
           </div>
-          <div class=" justify-center">
+          <div class="justify-center">
             <%= submit_tag "Enregistrer cette nouvelle version de ta photo" %>
           </div>
 
