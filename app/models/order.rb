@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :items, through: :cart_lines
 
-  after_create :admin_confirmation
+  after_create :admin_confirmation, :after_order_send
 
   def after_order_send
     UserMailer.after_order_email(self).deliver_now

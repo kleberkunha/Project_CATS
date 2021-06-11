@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
   def after_order_email(order)
     @order = order
     @user = @order.user
-    mail(to: @user.email, subject: 'Your KittenProject Order') 
+    mail(to: @user.email, subject: 'Your KittenMarket Order', body: 'something') 
   end
 
   def admin_confirmation(order)
