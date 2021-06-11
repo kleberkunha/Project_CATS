@@ -65,6 +65,9 @@
                 </div>
               </div>
             </div>
+              <%= form_tag new_item_path, multipart: true do %>
+                <%= file_field_tag :photo %>
+              <% end %>
             <div class="justify-center" id="button-resgister">
               <%= submit_tag "Enregistrer cette photo" %>
             </div>
