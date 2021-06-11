@@ -56,17 +56,17 @@
                 Please provide an url.
               </div>
             </div>
-              <div class=" mb-3">
-                <%= form_tag item_photos_path(@item.id), multipart: true do %>
-                  <%= file_field_tag :photo %>
-                  <%= submit_tag "mettre à jour" %>
-                <% end %>
-              </div>
           </div>
           <div class="justify-center" id="button-resgister">
             <%= submit_tag "Enregistrer cette nouvelle version de ta photo" %>
           </div>
         <% end %>
+        <div class=" mb-3">
+          <%= form_tag item_photos_path(@item), multipart: true do %>
+            <%= file_field_tag :photo %>
+            <%= submit_tag "mettre à jour" %>
+          <% end %>
+        </div>
         <BR>
         <div class=" justify-center">
           <p>
