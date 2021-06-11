@@ -38,7 +38,7 @@
               <h3><label for="validationServer02"><%= label_tag 'Description' %></label></h3>
             </div>
             <div class="justify-center">
-                <%= text_area_tag 'description', (@item.description if !@item.nil?), size: "100x10", minlength: 20, maxlength: 1000 %>
+                <%= text_area_tag 'description', (@item.description if !@item.nil?), size: "100x5", minlength: 20, maxlength: 1000 %>
             </div>
             <div class=" pt-4 justify-center">
             <label for="validationServerUsername"><%= label_tag 'Prix en euros' %></label>
