@@ -5,10 +5,5 @@
   <body>
     <h2>Merci pour ta commande sur notre KittensMarket %>!</h2>
     <p>We have received your payment of <%= number_to_currency(@order.amount, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-    <p>Please find the picture(s) you bought below:</p>
-    <br/>
-    <% @order.cart.cart_lines.each do |cart_line| %>
-      <%= image_tag attachments[cart_item.item.image.filename.to_s].url, :style => "height:400px" %>     
-    <% end %>
   </body>
 </html>

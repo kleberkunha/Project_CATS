@@ -14,9 +14,7 @@ class UserMailer < ApplicationMailer
 
   def after_order_email(order)
     @order = order
-    @order.items.each do |item|
-      attachments.inline[item.image.filename.to_s] = File.read(Rails.root.join("app/assets/images/kitten_pictures/#{item.image.filename.to_s}"))
-    end
+    @user = @order.user
     mail(to: @user.email, subject: 'Your KittenProject Order') 
   end
 
